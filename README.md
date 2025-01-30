@@ -3,11 +3,12 @@ In Alien Invasion, the player controls a spaceship that appears at the bottom ce
 
 
 ### Iteration - 1
-The game runs properly and the player is able to move the spaceship and shoot bullets, all using arrow keys.
-
+The game runs properly, allowing the player to move the spaceship and shoot bullets using the arrow keys.
 
 ### Iteration - 2
+An Alien UFO has now been added to the game. At this stage, a swarm of alien UFOs moves towards the spaceship in a left-right-down pattern. The player can shoot down these aliens.
 
+If an alien UFO touches the spaceship or reaches the bottom of the screen, the game resets with a new swarm of alien UFOs, and the spaceship returns to its starting position. If the player successfully shoots down all the UFOs, a new swarm appears. However, if a UFO touches the spaceship or the ground three times, the game will freeze.
 
 ### Iteration - 3
 
