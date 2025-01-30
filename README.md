@@ -3,15 +3,22 @@ In Alien Invasion, the player controls a spaceship that appears at the bottom ce
 
 
 ### Iteration - 1
-The game runs properly, allowing the player to move the spaceship and shoot bullets using the arrow keys.
+In the first iteration, the core game mechanics are established. The player can move the spaceship using the arrow keys and shoot bullets. The game runs smoothly, ensuring that the fundamental movement and shooting mechanics work as intended.
 
 ### Iteration - 2
-An Alien UFO has now been added to the game. At this stage, a swarm of alien UFOs moves towards the spaceship in a left-right-down pattern. The player can shoot down these aliens.
-
-If an alien UFO touches the spaceship or reaches the bottom of the screen, the game resets with a new swarm of alien UFOs, and the spaceship returns to its starting position. If the player successfully shoots down all the UFOs, a new swarm appears. However, if a UFO touches the spaceship or the ground three times, the game will freeze.
+This iteration introduces enemy elements to the game. A swarm of alien UFOs now moves toward the spaceship in a left-right-down pattern. The player can shoot the aliens, and when all are eliminated, a new swarm appears. If an alien UFO touches the spaceship or reaches the bottom of the screen, the game resets with a new swarm, and the spaceship returns to its starting position. However, if this happens three times, the game freezes, preventing further gameplay.
 
 ### Iteration - 3
 
+The game now includes a play button to initiate gameplay. Instead of freezing upon game over, the player is presented with an option to restart and play again. Sound effects are introduced to enhance the experience, including effects for shooting, alien destruction, and game over. A scoring system is implemented, displaying both the current score and the highest score achieved. Additionally, levels are introduced, increasing the game's difficulty as the player progresses.
+
+### Iteration - 4
+
+Implementing AI to make it learn and play the game on it's own.
 
 
-### Iteration - 2
+# RUNNING THE GAME LOCALLY:
+
+Make sure to pull the repo into your local computer.
+
+
