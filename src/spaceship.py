@@ -48,4 +48,7 @@ class Spaceship():
 
         self.rect.centerx = self.center
 
+    def center_spaceship(self):
+        """Center the ship on the screen."""
+        self.center = self.screen_rect.centerx
 

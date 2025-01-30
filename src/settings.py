@@ -24,3 +24,6 @@ class Settings():
         self.fleet_drop_speed = 25
         self.fleet_direction = 1
 
+        #spaceship settings
+        self.spaceship_limit = 3
+

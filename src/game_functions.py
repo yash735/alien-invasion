@@ -2,6 +2,8 @@ import sys
 import pygame
 from bullet import Bullet
 from alien import Alien
+from time import sleep
+
 
 def check_events(game_settings, screen, spaceship, bullets):
     """Respond to keypresses and mouse events."""
@@ -39,7 +41,7 @@ def fire_bullets(game_settings, screen, spaceship, bullets ):
         bullets.add(new_bullet)
 
 
-def update_bullets(aliens, bullets):
+def update_bullets(game_settings, screen, spaceship, aliens, bullets):
     """Update position of bullets and get rid of old bullets."""
 
     #Update Position of bullet
@@ -50,12 +52,18 @@ def update_bullets(aliens, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
 
-    # Check for any bullets that have hit aliens.
-    # If so, get rid of the bullet and the alien.
-    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
-    # to the make the bullet hight power destrying everthing in it's path do:
-    #collisions = pygame.sprite.groupcollide(bullets, aliens, False, True)
+    check_collisions_fleet(game_settings, screen, bullets, aliens)
 
+
+
+def check_collisions_fleet(game_settings, screen, bullets, aliens):
+    """Check for any bullets that have hit aliens. If all aliens are gone, create a new fleet"""
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        # Destroy exsisting bullets and create new fleet
+        bullets.empty()
+        create_fleet(game_settings, screen, spaceship, aliens)
 
 
 
@@ -110,13 +118,21 @@ def create_fleet(game_settings, screen, spaceship, aliens):
 
 
 
-def update_aliens(game_settings, aliens):
+def update_aliens(game_settings, stats, screen, spaceship, aliens, bullets):
     """
     Check if the fleet is at an edge,
     and then update the postions of all aliens in the fleet.
     """
+
     check_fleet_edges(game_settings, aliens)
     aliens.update()
+
+    if pygame.sprite.spritecollideany(spaceship, aliens):
+        spaceship_down(game_settings, stats, screen, spaceship, aliens, bullets)
+    
+    check_aliens_bottom(game_settings, stats, screen, spaceship, aliens, bullets)
+
+
     
 
 
@@ -134,4 +150,34 @@ def change_fleet_direction(game_settings, aliens):
     game_settings.fleet_direction *= -1
 
 
+def spaceship_down(game_settings, stats, screen, spaceship, aliens, bullets):
+    """Respond to spaceship being hit by alien."""
+    # Decrement spaceship.
+    if stats.spaceship_left > 0:
+        stats.spaceship_left -= 1
+
+        aliens.empty()
+        bullets.empty()
+
+        # Create a new fleet and center the spaceship.
+        create_fleet(game_settings, screen, spaceship, aliens)
+        spaceship.center_spaceship()
+
+        # Pause
+        sleep(0.5)
+
+    else:
+        stats.game_active = False
+    
+
+
+def check_aliens_bottom(game_settings, stats, screen, spaceship, aliens, bullets):
+    """Check if any aliens have reached the bottom of the screen."""
+    screen_rect = screen.get_rect()
+
+    for alien in aliens.sprites():
+        if alien.rect.bottom >= screen_rect.bottom:
+            # Treat this the same as if the ship got hit.
+            spaceship_down(game_settings, stats, screen, spaceship, aliens, bullets)
+            break
 
