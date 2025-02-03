@@ -13,6 +13,7 @@ In Alien Invasion, the player controls a spaceship that appears at the bottom ce
 - If you have a virtual environment, I already made a run.sh script to make it easier to run the program.
 - The program should work as expected.
 
+# Iterations:
 
 ### Iteration - 1
 In the first iteration, the core game mechanics are established. The player can move the spaceship using the arrow keys and shoot bullets. The game runs smoothly, ensuring that the fundamental movement and shooting mechanics work as intended.
