@@ -23,6 +23,6 @@ Make sure to pull the repo into your local computer.
 
 
 ### COPYRIGHT:
-This code was inspired and taken from , Python Crash Course, 3rd Edition: A Hands-On, Project-Based Introduction to Programming by Eric Matthes.
+This code was inspired and taken from: Python Crash Course, 3rd Edition: A Hands-On, Project-Based Introduction to Programming by Eric Matthes.
 
 
