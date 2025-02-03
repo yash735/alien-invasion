@@ -6,6 +6,13 @@ In Alien Invasion, the player controls a spaceship that appears at the bottom ce
 - I have a requirement.txt file where you can do this: pip install -r requirements.txt
 - You could also create a virtual environment and install this, so that your device is clean.
 
+### Running the game locally:
+- Make sure to have a virtual environment (optional).
+- cd into project folder.
+- pip install -r requirements.txt.
+- If you have a virtual environment, I already made a run.sh script to make it easier to run the program.
+- The program should work as expected.
+
 
 ### Iteration - 1
 In the first iteration, the core game mechanics are established. The player can move the spaceship using the arrow keys and shoot bullets. The game runs smoothly, ensuring that the fundamental movement and shooting mechanics work as intended.
